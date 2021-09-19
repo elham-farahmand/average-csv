@@ -1,1 +1,61 @@
+from statistics import mean
+
+class Students:
+    count = 0
+    def __init__ (self, students_number):
+        self.students_number = students_number
+    def get_age(self):
+        ages = input().split()
+        self.ages = map(float, ages)
+    def get_height(self):
+        heights = input().split()
+        self.heights = map(float, heights)
+    def get_weight(self):
+        weights = input().split()
+        self.weights = map(float, weights)
+    def avg_ages (self):
+        self.avg_ages = mean(self.ages)
+        return self.avg_ages
+    def avg_heights (self):
+        self.avg_heights = mean(self.heights)
+        return self.avg_heights
+    def avg_weights (self):
+        self.avg_weights = mean(self.weights)
+        return self.avg_weights
+
+
+numbers_A = int(input())
+class_A = Students(numbers_A)
+class_A.get_age()
+class_A.get_height()
+class_A.get_weight()
+
+
+numbers_B = int(input())
+class_B = Students(numbers_B)
+class_B.get_age()
+class_B.get_height()
+class_B.get_weight()
+
+class_A_avg_age = class_A.avg_ages()
+class_A_avg_height = class_A.avg_heights()
+class_A_avg_weight = class_A.avg_weights()
+
+class_B_avg_age = class_B.avg_ages()
+class_B_avg_height = class_B.avg_heights()
+class_B_avg_weight = class_B.avg_weights()
+
+print("%s\n%s\n%s\n%s\n%s\n%s" % (class_A_avg_age, class_A_avg_height, class_A_avg_weight, class_B_avg_age, class_B_avg_height, class_B_avg_weight))
+
+if (class_A_avg_height > class_B_avg_height):
+    print("A")
+elif (class_A_avg_height == class_B_avg_height):
+    if (class_A_avg_weight < class_B_avg_weight):
+        print("A")
+    elif (class_A_avg_weight == class_B_avg_weight):
+        print("Same")
+    else: 
+        print("B")
+else:
+    print("B")
 
