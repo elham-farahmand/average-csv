@@ -1,0 +1,98 @@
+import csv
+# For the average
+from statistics import mean
+from collections import OrderedDict
+
+def calculate_averages(input_file_name, output_file_name):
+    fin = open(input_file_name,newline='')
+    reader = csv.reader(fin)
+    fout = open(output_file_name,'w',newline='')
+    writer = csv.writer(fout, delimiter=',')
+
+    for row in reader:
+        these_grades = list()
+        for grade in row[1:]:
+            these_grades.append(float(grade))
+        answer = [row[0], str(mean(these_grades))]
+        writer.writerow(answer)
+    fin.close()
+    fout.close()
+
+def calculate_sorted_averages(input_file_name, output_file_name):
+    fin = open(input_file_name,newline='')
+    reader = csv.reader(fin)
+    fout = open(output_file_name,'w',newline='')
+    writer = csv.writer(fout, delimiter=',')
+    dic = OrderedDict()
+    for row in reader:
+        these_grades = list()
+        for grade in row[1:]:
+            these_grades.append(float(grade))
+        dic[row[0]] = mean(these_grades)
+    sortt = sorted(dic.items(), key=lambda x:(x[1],x[0]))
+    for item in sortt:
+        writer.writerow([item[0], str(item[1])])
+    fin.close()
+    fout.close()
+
+
+def calculate_three_best(input_file_name, output_file_name):
+    fin = open(input_file_name,newline='')
+    reader = csv.reader(fin)
+    fout = open(output_file_name,'w',newline='')
+    writer = csv.writer(fout, delimiter=',')
+    dic = OrderedDict()
+    for row in reader:
+        these_grades = list()
+        for grade in row[1:]:
+            these_grades.append(float(grade))
+        dic[row[0]] = mean(these_grades)
+    final = sorted(dic.items(), key=lambda x: (-x[1], x[0]))
+    counter = 0
+    for item in final:
+        writer.writerow([item[0], str(item[1])])
+        counter+=1
+        if ( counter == 3):
+            break
+    fin.close()
+    fout.close()
+
+
+
+def calculate_three_worst(input_file_name, output_file_name):
+    fin = open(input_file_name,newline='')
+    reader = csv.reader(fin)
+    fout = open(output_file_name,'w',newline='')
+    writer = csv.writer(fout, delimiter=',')
+    dic = OrderedDict()
+    for row in reader:
+        these_grades = list()
+        for grade in row[1:]:
+            these_grades.append(float(grade))
+        dic[row[0]] = mean(these_grades)
+    sortt = sorted(dic.items(), key=lambda x:(x[1],x[0]))
+    counter = 0
+    for item in sortt:
+        writer.writerow([str(item[1])])
+        counter += 1
+        if (counter == 3):
+            break
+    fin.close()
+    fout.close()    
+
+
+def calculate_average_of_averages(input_file_name, output_file_name):
+    fin = open(input_file_name,newline='')
+    reader = csv.reader(fin)
+    fout = open(output_file_name,'w',newline='')
+    writer = csv.writer(fout, delimiter=',')
+    means = list ()
+    for row in reader:
+        these_grades = list()
+        for grade in row[1:]:
+            these_grades.append(float(grade))
+        means.append(mean(these_grades))
+    answer = mean(means)
+    writer.writerow([str(answer)])
+    fin.close()
+    fout.close()
