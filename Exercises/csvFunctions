@@ -1,5 +1,7 @@
+# This program contains five different function to calculate different values. 
+# Each function gets a CSV file that includes names and grades of students and writes the output in another CSV file.
+
 import csv
-# For the average
 from statistics import mean
 from collections import OrderedDict
 
