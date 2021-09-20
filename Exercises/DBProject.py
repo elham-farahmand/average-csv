@@ -1,3 +1,6 @@
+# This program gets an Email and passwors from the user and inserts them into a database table
+# You can change the DB name and table name so that it works for you
+
 import re
 import mysql.connector
 
