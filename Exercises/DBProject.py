@@ -1,4 +1,5 @@
 # This program gets an Email and passwors from the user and inserts them into a database table
+# It also checks whether your Email or password is valid or not using regex
 # You can change the DB name and table name so that it works for you
 
 import re
