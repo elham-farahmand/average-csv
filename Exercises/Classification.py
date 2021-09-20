@@ -1,3 +1,6 @@
+# This program gets a CSV file containing height, weight, shoe size and gender of people
+# It uses decision tree classifier to predict gender of new people
+
 import csv
 from sklearn import tree
 
