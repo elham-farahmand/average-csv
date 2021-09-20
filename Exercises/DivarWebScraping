@@ -1,3 +1,7 @@
+# divar.ir is the biggest website in the middle-east that people post their properties and try to sell them online. 
+# This program is to scrape its first page and show the posts that their price is set as a defined value.
+
+
 import re
 from bs4 import BeautifulSoup
 import requests
