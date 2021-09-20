@@ -1,5 +1,6 @@
 # This program has two classes. Human is the parent class and Footbalist is the child class.
 # We give a list of 22 names of soccor players to the program and it spreads players into two teams randomly.
+# At the end it prints each player's name and team.
 
 import random
 
